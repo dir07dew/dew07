@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>مديرية التشغيل لولاية بسكرة</title>
+  <style>
+ 
+.contact-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+.contact-form h2 {
+  margin-bottom: 20px;
+  color: #007bff;
+}
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+.contact-form button {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+  </style>
+
+
+</head>
+<body>
+
+
+  <main>
+ <section class="contact-form">
+  <h2>اتصل بنا</h2>
+  <form action="https://formspree.io/f/xovwlgwl" method="post">
+    <label for="name">الاسم:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">البريد الإلكتروني:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">رسالتك:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">إرسال</button>
+
+
+    <input type="hidden" name="_subject" value="رسالة جديدة من موقع مديرية التشغيل">
+<input type="hidden" name="_next" value="thank.html">
+  </form>
+</section>
+  
+  </main>
+
+ 
+</body>
+</html>
