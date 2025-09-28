@@ -31,7 +31,7 @@
       font-size: 18px;
     }
     .dropdown-toggle {
-      position: relative; /* مهم ليتموضع عليه المحتوى */
+      position: relative; 
       cursor: pointer;
       padding: 5px 10px;
       border-radius: 6px;
@@ -41,39 +41,42 @@
       background-color: rgba(255 255 255 / 0.2);
     }
     .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border-radius: 6px;
-      min-width: 150px;
-      z-index: 1000;
-    }
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #578fe2; /* أبيض باش النص يبان مليح */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  min-width: 180px;
+  z-index: 1000;
+}
+
 .dropdown-content a {
   display: block;
   padding: 10px 15px;
-  color: black; /* ← حل المشكلة هنا */
+  color: #000; /* أسود باش يكون واضح */
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
-    .dropdown-content a:hover {
-      background-color: #007bff;
-      color: rgb(249, 249, 252);
-    }
+
+.dropdown-content a:hover {
+  background-color: #007bff;
+  color: #fff; /* أبيض فوق الأزرق */
+}
+
 
 
     /* صورة */
-.full-width-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  display: block;
-  border-radius: 8px;
-  margin: 20px 0;
-  height: 660px;
-}
+    .full-width-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+      margin: 20px 0;
+      height: 660px;
+    }
     /* الماركيه */
     .marquee {
       width: 100%;
@@ -97,11 +100,6 @@
     }
 
     /* المحتوى الرئيسي */
-    main {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
     section.jobs h2 {
       color: #007bff;
       margin-bottom: 15px;
@@ -159,37 +157,36 @@
       background-color: #333;
     }
     .social-icons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-.icon {
-  color: white;
-  background-color: #007bff;
-  padding: 10px;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  font-size: 18px;
-}
-.icon:hover {
-  background-color: #0056b3;
-}
-.facebook { background-color: #3b5998; }
-.twitter { background-color: #1da1f2; }
-.instagram { background-color: #e1306c; }
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .icon {
+      color: white;
+      background-color: #007bff;
+      padding: 10px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-size: 18px;
+    }
+    .icon:hover {
+      background-color: #0056b3;
+    }
+    .facebook { background-color: #3b5998; }
+    .twitter { background-color: #1da1f2; }
+    .instagram { background-color: #e1306c; }
 
-.dropdown-toggle a {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
-
-.image-row {
+    .dropdown-toggle a {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+    .image-row {
   display: flex;
   width: 100%;
-  height: 380px;
+  height: 250px; /* صغرت الصور */
   overflow: hidden;
 }
 
@@ -198,6 +195,7 @@
   object-fit: cover;
   height: 100%;
 }
+
 @media (max-width: 768px) {
   .image-row {
     flex-direction: column;
@@ -206,20 +204,66 @@
 
   .half-image {
     width: 100%;
-    height: 200px; /* أو auto إذا كانت الصور متناسبة */
+    height: 180px; /* حجم أصغر في الهاتف */
   }
 }
 
-footer a {
-  text-decoration: none;
+
+    footer a {
+      text-decoration: none;
+    }
+    .center-text {
+  background: #fff;
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  line-height: 1.8;
+  color: #333;
+     }
+
+.center-text h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
+.center-text p:last-of-type {
+  font-style: italic;
+  color: #222;
+}
+
+
+
+.center-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.center-text ul li {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #444;
+  position: relative;
+  padding-right: 28px;
+}
+
+.center-text ul li::before {
+  content: "✔";
+  position: absolute;
+  right: 0;
+  color: #007bff;
+  font-weight: bold;
+}
 
 
 
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 <body>
@@ -243,12 +287,8 @@ footer a {
         </div>
       </div>
       <div class="dropdown-toggle">فرص العمل</div>
-
-<a href="contact.html" target="_blank" class="dropdown-toggle" style="text-decoration: none; color: inherit;">اتصل بنا</a>
-
-</div>
-    
-
+      <a href="contact.html" target="_blank" class="dropdown-toggle" style="text-decoration: none; color: inherit;">اتصل بنا</a>
+    </div>
   </header>
 
 <div class="image-row">
@@ -257,114 +297,26 @@ footer a {
 </div>
 
   <div class="marquee">
-    <span>أهلاً بكم في موقع مديرية التشغيل</span>
+    <span>أهلاً  بكم  في  موقع  مديرية  التشغيل</span>
   </div>
-
-  <main>
-
-    <section class="jobs">
-  <h2>ملفات الخاصة بـ CTA</h2> 
-  <ul>
-
-    <li>
-
-      <h2 onclick="toggleDetails('finance-details')" style="cursor: pointer; color: #007bff;">
-       📂 الملف المالي</i>
-      </h2>
-      <div id="finance-details" style="display: none; padding-right: 15px;">
-        <ul style="color: #555; font-size: 15px; margin-top: 5px;">
-          <li>كشف الحضور الشهري لكل مستفيد</li>
-          <li>شهادة الإنخراط</li>
-          <li>بيان المساهمة في الضمان الإجتماعي (DECLARATION DE COTISATION)</li>
-          <li>حوالات تثبت تسديد أجر المستفيد سواء بريدية أو بنكية</li>
-          <li>شهادة إصدار حوالة بريدية</li>
-          <li>شهادة مستحقات الضرائب</li>
-          <li>الحساب البريدي / البنكي للمستخدم</li>
-        </ul>
-
-      </div>
-    </li>
-
-    <li>
-      <h2 onclick="toggleDetails('admin-details')" style="cursor: pointer; color: #007bff;">
-        📂 الملف الإداري
-      </h2>
-      <div id="admin-details" style="display: none; padding-right: 15px;">
-        <ul style="color: #555; font-size: 15px; margin-top: 5px;">
-    
-
-
-
-
-  <h3 onclick="toggleDetails('beneficiary-details')" style="cursor: pointer; color: #2878a7; margin-right: 15px;">
-    📁 ملف المستفيد
-  </h3>
-  <div id="beneficiary-details" style="display: none; padding-right: 30px;">
-    <ul style="color: #555; font-size: 15px; margin-top: 5px;">
-      <li>شهادة ميلاد (13)</li>
-      <li>شهادة الحالة المدنية</li>
-      <li>02 صور شمسية</li>
-      <li>نسخة من الشهادة أو المؤهل العلمي</li>
-      <li>صك بريدي أو شيك بنكي</li>
-      <li>طلب خطي للإستفادة من CTA (التوقيع + البصمة)</li>
-      <li>نسخة من اثبات الوضعية تجاه الخدمة الوطنية</li>
-      <li>04 نسخ من محضر التنصيب و عقد CTA يستخرج من الوكالة</li>
-      <li>04 نسخ من اتفاقية العقد بين مديرية التشغيل و المستخدم</li>
-      <li>رسالة التوجيه ممضاة و مختومة من طرف المستخدم + بطاقة عمل</li>
+  <section class="center-text">
+    <h2 style="color:#007bff; margin-bottom:15px;">مديرية التشغيل لولاية بسكرة</h2>
+      
+    <p>
+      فضاء يربط بين الباحثين عن عمل والمؤسسات، ويقرب فرص التشغيل من الشباب والكفاءات المحلية.  
+      نرافقك في مسارك المهني من خلال:
+    </p>
+    <ul style="list-style: none; padding: 0;">
+      <li>✔ استقبال طالبي العمل وتسهيل تسجيلهم.</li>
+      <li>✔ نشر العروض ومرافقة المؤسسات في التوظيف.</li>
+      <li>✔ متابعة برامج الإدماج ودعم التشغيل.</li>
     </ul>
-  </div>
-
-  <h3 onclick="toggleDetails('user-details')" style="cursor: pointer; color: #2878a7; margin-right: 15px; margin-top: 10px;">
-    📁 ملف المستخدم
-  </h3>
-  <div id="user-details" style="display: none; padding-right: 30px;">
-    <ul style="color: #555; font-size: 15px; margin-top: 5px;">
-      <li>البطاقة التقنية لمؤسسة المستخدم</li>
-      <li>نسخة مصادق عليها من السجل التجاري أو وثيقة الإعتماد</li>
-      <li>نسخة من بطاقة التعريف الجبائية للمستخدم</li>
-      <li>كشف الراتب الشكلي</li>
-      <li>02 نسخة من الصك البنكي مشطوب (RIB) أو (RIP)</li>
-    </ul>
-  </div>
-</li>
-
-
-
-
-
-
-
-        </ul>
-      </div>
-    </li>
-
-  </ul>
-
-
-
-
-<script>
-  function toggleDetails(id) {
-    var details = document.getElementById(id);
-    if (details.style.display === "none") {
-      details.style.display = "block";
-    } else {
-      details.style.display = "none";
-    }
-  }
-</script>
-
-
-
-
-</section>
-
   
-  </main>
-
-
-
-
+    <p>
+      هدفنا هو خلق جسور بين الفرص والمهارات، والمساهمة في تنمية ولاية بسكرة اقتصادياً واجتماعياً.
+    </p>
+  </section>
+  
 <footer>
   <p>
     © جميع الحقوق محفوظة 2025
@@ -380,8 +332,6 @@ footer a {
   </div>
 </footer>
 
-
-
   <script>
     const serviceToggles = document.querySelectorAll('.services-toggle');
 
@@ -392,7 +342,6 @@ footer a {
         if (menu.style.display === "block") {
           menu.style.display = "none";
         } else {
-          // إخفاء كل القوائم المفتوحة أولاً
           document.querySelectorAll('.dropdown-content').forEach(m => m.style.display = "none");
           menu.style.display = "block";
         }
