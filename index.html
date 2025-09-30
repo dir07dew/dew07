@@ -11,27 +11,37 @@
       background-color: #f9f9f9;
       color: #333;
     }
+
     header {
       background-color: #007bff;
       color: white;
-      padding: 20px 30px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* اللوقو على اليمين والقائمة على اليسار */
       position: relative;
     }
 
-    /* القائمة المنسدلة */
+    /* لوقو الوزارة */
+/* لوقو الوزارة دائري */
+.logo-ministere {
+  height: 70px;        /* نفس الحجم */
+  width: 70px;         /* لازم عرض يساوي الطول باش يولي دائرة */
+  border-radius: 50%;  /* يخلي الصورة دائرية */
+  object-fit: cover;   /* يخلي الصورة ما تتمددش */
+}
+
+
+    /* القائمة */
     .dropdown {
       display: flex;
-      justify-content: center;
       gap: 30px;
-      margin-top: 15px;
       font-weight: normal;
       font-size: 18px;
     }
+
     .dropdown-toggle {
-      position: relative; 
+      position: relative;
       cursor: pointer;
       padding: 5px 10px;
       border-radius: 6px;
@@ -40,43 +50,60 @@
     .dropdown-toggle:hover {
       background-color: rgba(255 255 255 / 0.2);
     }
+
     .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: #578fe2; /* أبيض باش النص يبان مليح */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  min-width: 180px;
-  z-index: 1000;
-}
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #578fe2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      min-width: 180px;
+      z-index: 1000;
+    }
 
-.dropdown-content a {
-  display: block;
-  padding: 10px 15px;
-  color: #000; /* أسود باش يكون واضح */
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      color: #000;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
 
-.dropdown-content a:hover {
-  background-color: #007bff;
-  color: #fff; /* أبيض فوق الأزرق */
-}
-
-
+    .dropdown-content a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
 
     /* صورة */
-    .full-width-image {
+    .image-row {
+      display: flex;
       width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      display: block;
-      border-radius: 8px;
-      margin: 20px 0;
-      height: 660px;
+      height: 250px;
+      overflow: hidden;
     }
+    .half-image {
+      width: 50%;
+      object-fit: cover;
+      height: 100%;
+    }
+    @media (max-width: 768px) {
+      .image-row {
+        flex-direction: column;
+        height: auto;
+      }
+      .half-image {
+        width: 100%;
+        height: 180px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
     /* الماركيه */
     .marquee {
       width: 100%;
@@ -99,22 +126,33 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* المحتوى الرئيسي */
-    section.jobs h2 {
-      color: #007bff;
-      margin-bottom: 15px;
+    /* مركز المحتوى */
+    .center-text {
+      background: #fff;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      line-height: 1.8;
+      color: #333;
     }
-    section.jobs ul {
-      list-style: none;
-      padding: 0;
-    }
-    section.jobs ul li {
-      background-color: white;
-      margin-bottom: 10px;
-      padding: 15px 20px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    .center-text h2 { color: #007bff; margin-bottom: 20px; font-size: 24px; }
+    .center-text ul { list-style: none; padding: 0; margin: 20px 0; }
+    .center-text ul li {
+      margin-bottom: 12px;
       font-size: 18px;
+      color: #444;
+      position: relative;
+      padding-right: 28px;
+    }
+    .center-text ul li::before {
+      content: "✔";
+      position: absolute;
+      right: 0;
+      color: #007bff;
+      font-weight: bold;
     }
 
     /* الفوتر */
@@ -127,160 +165,39 @@
       color: #555;
       margin-top: 40px;
     }
-    footer p {
-      margin: 0;
-    }
+    footer a { text-decoration: none; }
 
-    /* أزرار اتصل بنا وراسلنا */
-    .fixed-button {
-      position: fixed;
-      left: 20px;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
-      color: white;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      z-index: 10000;
-    }
-    .call-btn {
-      bottom: 80px;
-      background-color: #007bff;
-    }
-    .mail-btn {
-      bottom: 20px;
-      background-color: #333;
-    }
     .social-icons {
       margin-top: 20px;
       display: flex;
       justify-content: center;
       gap: 15px;
     }
+
+    /* أيقونات اجتماعية */
     .icon {
       color: white;
-      background-color: #007bff;
       padding: 10px;
       border-radius: 50%;
       text-decoration: none;
       transition: background-color 0.3s ease;
       font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
-    .icon:hover {
-      background-color: #0056b3;
+    .icon.facebook { background-color: #3b5998; }
+    .icon.google-maps {
+      background: linear-gradient(135deg, #4285F4 25%, #34A853 25%, #FBBC05 50%, #EA4335 50%);
+      color: white;
     }
-    .facebook { background-color: #3b5998; }
-    .twitter { background-color: #1da1f2; }
-    .instagram { background-color: #e1306c; }
-
-    .dropdown-toggle a {
-      text-decoration: none;
-      color: inherit;
-      display: inline-block;
-    }
-    .image-row {
-  display: flex;
-  width: 100%;
-  height: 250px; /* صغرت الصور */
-  overflow: hidden;
-}
-
-.half-image {
-  width: 50%;
-  object-fit: cover;
-  height: 100%;
-}
-
-@media (max-width: 768px) {
-  .image-row {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .half-image {
-    width: 100%;
-    height: 180px; /* حجم أصغر في الهاتف */
-  }
-}
-
-
-    footer a {
-      text-decoration: none;
-    }
-    .center-text {
-  background: #fff;
-  padding: 30px;
-  margin: 40px auto;
-  max-width: 800px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  text-align: center;
-  line-height: 1.8;
-  color: #333;
-     }
-
-.center-text h2 {
-  color: #007bff;
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-.center-text p:last-of-type {
-  font-style: italic;
-  color: #222;
-}
-
-
-
-.center-text ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.center-text ul li {
-  margin-bottom: 12px;
-  font-size: 18px;
-  color: #444;
-  position: relative;
-  padding-right: 28px;
-}
-
-.center-text ul li::before {
-  content: "✔";
-  position: absolute;
-  right: 0;
-  color: #007bff;
-  font-weight: bold;
-}
-
-
 
   </style>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
-<script>
-  function toggleDetails(id) {
-    var details = document.getElementById(id);
-    if (details.style.display === "none") {
-      details.style.display = "block";
-    } else {
-      details.style.display = "none";
-    }
-  }
-</script>
-
-  <header>
-    مديرية التشغيل لولاية بسكرة
-    <div class="dropdown">
+  <header style="position: relative; background-color: #007bff; padding: 20px 30px; text-align: center; color: white; font-size: 24px; font-weight: bold;">
+    <div class="dropdown" style="margin: 0 auto; display: flex; justify-content: center; gap: 30px; font-size: 18px;">
       <div class="dropdown-toggle services-toggle">الخدمات
         <div class="dropdown-content">
           <a href="الخدمات.html" target="_blank">شهادات إدارية</a>
@@ -289,52 +206,53 @@
       <div class="dropdown-toggle">فرص العمل</div>
       <a href="contact.html" target="_blank" class="dropdown-toggle" style="text-decoration: none; color: inherit;">اتصل بنا</a>
     </div>
-  </header>
+    <img src="logo.jpg" alt="لوقو وزارة العمل" class="logo-ministere" 
+    style="position:absolute; right:30px; top:50%; transform:translateY(-50%);" />
 
-<div class="image-row">
-  <img src="dir.jpg" alt="صورة 1" class="half-image" />
-  <img src="dir2.jpg" alt="صورة 2" class="half-image" />
-</div>
+  </header>
+  
+
+  
+  
+  <div class="image-row">
+    <img src="dir.jpg" alt="صورة 1" class="half-image" />
+    <img src="dir2.jpg" alt="صورة 2" class="half-image" />
+  </div>
 
   <div class="marquee">
     <span>أهلاً  بكم  في  موقع  مديرية  التشغيل</span>
   </div>
+
   <section class="center-text">
-    <h2 style="color:#007bff; margin-bottom:15px;">مديرية التشغيل لولاية بسكرة</h2>
-      
-    <p>
-      فضاء يربط بين الباحثين عن عمل والمؤسسات، ويقرب فرص التشغيل من الشباب والكفاءات المحلية.  
-      نرافقك في مسارك المهني من خلال:
-    </p>
-    <ul style="list-style: none; padding: 0;">
+    <h2>مديرية التشغيل لولاية بسكرة</h2>
+    <p>فضاء يربط بين الباحثين عن عمل والمؤسسات، ويقرب فرص التشغيل من الشباب والكفاءات المحلية. نرافقك في مسارك المهني من خلال:</p>
+    <ul>
       <li>✔ استقبال طالبي العمل وتسهيل تسجيلهم.</li>
       <li>✔ نشر العروض ومرافقة المؤسسات في التوظيف.</li>
       <li>✔ متابعة برامج الإدماج ودعم التشغيل.</li>
     </ul>
-  
-    <p>
-      هدفنا هو خلق جسور بين الفرص والمهارات، والمساهمة في تنمية ولاية بسكرة اقتصادياً واجتماعياً.
-    </p>
+    <p>هدفنا هو خلق جسور بين الفرص والمهارات، والمساهمة في تنمية ولاية بسكرة اقتصادياً واجتماعياً.</p>
   </section>
-  
-<footer>
-  <p>
-    © جميع الحقوق محفوظة 2025
-    <br />
-    🗺️ <a href="https://maps.app.goo.gl/mMSypwZEnwWfa9gKA" target="_blank" style="text-decoration:none; color:#007bff;">
-      موقع المديرية
-    </a>
-    ☎️ <a href="tel:033519643" style="color: #007bff; text-decoration: none;">033519643</a> |
-    ✉️ <a href="mailto:dir99131@gmail.com" style="color: #007bff; text-decoration: none;">dir99131@gmail.com</a>
-  </p>
-  <div class="social-icons">
-    <a href="https://www.facebook.com/dewbiskra07/" target="_blank" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
-  </div>
-</footer>
+
+  <footer style="position: relative; background-color: #f0f2f5; text-align: center; padding: 40px 20px 80px; font-size: 16px; color: #555; margin-top: 40px;">
+    <p>
+      © جميع الحقوق محفوظة 2025
+      <br /><br />
+      ☎️ <a href="tel:033519643" style="color: #007bff; text-decoration: none;">033519643</a> |
+      ✉️ <a href="mailto:dir99131@gmail.com" style="color: #007bff; text-decoration: none;">dir99131@gmail.com</a>
+    </p>
+    <div class="social-icons" style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+      <a href="https://www.facebook.com/dewbiskra07/" target="_blank" class="icon facebook" style="color:white; background-color:#3b5998; padding:10px; border-radius:50%; text-decoration:none; font-size:18px;">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://maps.app.goo.gl/mMSypwZEnwWfa9gKA" target="_blank" class="icon google-maps" style="color:white; background: linear-gradient(135deg, #4285F4 25%, #34A853 25%, #FBBC05 50%, #EA4335 50%); padding:10px; border-radius:50%; font-size:18px; display:inline-flex; align-items:center; justify-content:center; text-decoration:none;">
+        <i class="fas fa-map-marker-alt"></i>
+      </a>
+    </div>
+  </footer>
 
   <script>
     const serviceToggles = document.querySelectorAll('.services-toggle');
-
     serviceToggles.forEach(toggle => {
       const menu = toggle.querySelector('.dropdown-content');
       toggle.addEventListener('click', e => {
@@ -347,11 +265,9 @@
         }
       });
     });
-
     document.addEventListener('click', () => {
       document.querySelectorAll('.dropdown-content').forEach(m => m.style.display = "none");
     });
   </script>
-
 </body>
 </html>
